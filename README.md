@@ -63,6 +63,24 @@ LEFT JOIN BIT_DB.customers cust
 --List all the products sold in Los Angeles in February, and include how many of each were sold.
 SELECT Product, SUM(quantity)
 FROM BIT_DB.FebSales
+
+SELECT orderdate from BIT_DB.FebSales
+WHERE orderdate like '02/18/19%'
+
+SELECT distinct Product
+FROM BIT_DB.FebSales
+WHERE Product like '%Batteries%'
+
+##2. 
+SELECT distinct Product, Price
+FROM BIT_DB.FebSales 
+WHERE Price like '%.99'
+
+--List all the products sold in Los Angeles in February, and include how many of each were sold.
+SELECT Product, SUM(quantity)
+FROM BIT_DB.FebSales
+WHERE location like '%Los Angeles%'
+GROUP BY Product;
 WHERE location like '%Los Angeles%'
 GROUP BY Product;
 ON FEB.orderid=cust.order_id
